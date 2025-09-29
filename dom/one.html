@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+            background-color: #212121;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+    <title>Basic HTML Template</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading">Hello, World! <span style="display:none"> Hi Adnan</span></h1>
+        <p>This is a basic HTML template.</p>
+        <h2>This is a subheading</h2>
+        <p>Feel free to modify and expand it as needed.</p>
+        <a href="#">This is a link</a>
+    <h3>My name is Adnan</h3>
+    <p>This is a paragraph with <strong>bold</strong> and <em>
+        <input type="password" name="" placeholder="Type here">
+    </div>  
+</body>
+<script>
+    
+const requestUrl = 'https://jsonplaceholder.typicode.com/posts';
+    const xhr = new XMLHttpRequest();
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var data =JSON.parse(xhr.responseText);
+                console.log(data);
+
+                let heading = document.getElementById('heading').innerText;
+                data.forEach(post => {
+                    let para = document.createElement('p');
+                    para.textContent = `${heading} - ${post.title}`;
+                    document.body.appendChild(para);
+                });
+            } else {
+                console.error('Error: Request failed with status', xhr.status);
+            }
+        }
+    };
+    xhr.open('GET', requestUrl, true);
+    console.log(xhr.readyState);
+    xhr.send();
+</script>
+</html>
