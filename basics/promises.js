@@ -69,15 +69,13 @@ promiseFive = new Promise(function (resolve, reject) {
 });
 
 async function fetchCity() {
-    try{
-
-        const response =  await promiseFive;
+    try {
+        const response = await promiseFive;
         console.log("After promise is resolved " + response.city);
-
     }
-    catch(error){  
+    catch (error) {
         console.log("Some error occured " + error);
-     }
+    }
 }
 fetchCity()
 
