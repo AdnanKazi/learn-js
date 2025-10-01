@@ -78,4 +78,4 @@ async function fetchCity() {
     }
 }
 fetchCity()
-
+ 
